@@ -3,3 +3,4 @@ db.targetItems.drop();
 
   {category: "Sporting Goods", price: "49.99", stocked: true, name: "Football"},
   {category: "Electronics", price: "99.99", stocked: true, name: "iPod Touch"},
+
