@@ -4,27 +4,30 @@
 // Use Ctrl+Space inside a snippet or a string literal to trigger completions.
 
 // Select the database to use.
-use('mongodbVSCodePlaygroundDB');
+use('targetItems');
 
 // The drop() command destroys all data from a collection.
 db.targetItems.drop();
 
 // Insert a few documents into the targetItems collection.
 db.targetItems.insertMany([
-  {category: "Sporting Goods", price: "49.99", stocked: true, name: "Football"},
-  {category: "Sporting Goods", price: "9.99", stocked: true, name: "Baseball"},
-  {category: "Sporting Goods", price: "29.99", stocked: false, name: "Basketball"},
-  {category: "Electronics", price: "99.99", stocked: true, name: "iPod Touch"},
-  {category: "Electronics", price: "399.99", stocked: false, name: "iPhone 5"},
-  {category: "Electronics", price: "199.99", stocked: true, name: "Nexus 7"}
+  {category: "Sporting Goods", price: 49.99, stocked: true, name: "Football"},
+  {category: "Sporting Goods", price: 9.99, stocked: true, name: "Baseball"},
+  {category: "Sporting Goods", price: 29.99, stocked: false, name: "Basketball"},
+  {category: "Electronics", price: 99.99, stocked: true, name: "iPod Touch"},
+  {category: "Electronics", price: 399.99, stocked: false, name: "iPhone 5"},
+  {category: "Electronics", price: 199.99, stocked: true, name: "Nexus 7"}
 ]);
 
-// Filter: All stocked items.
-db.targetItems.find({stocked: true});
+ // Filter: All stocked items.
+// db.targetItems.find({stocked: true});
 
 // Use $or to query either sporting goods or electronics.
-db.targetItems.find({$or: [{category: "Sporting Goods"}, {category: "Electronics"}]});
+// db.targetItems.find({$or: [{category: "Sporting Goods"}, {category: "Electronics"}]});
 
 // Use $and to query sporting goods that are not in stock.
-db.targetItems.find({category: "Sporting Goods", stocked: false});
+// db.targetItems.find({category: "Sporting Goods", stocked: false});
+
+// Query all items $99.00 or greater.
+db.targetItems.find({price: {"$gte": 99.99}});
 
